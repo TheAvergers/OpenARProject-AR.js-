@@ -85,7 +85,7 @@ body, html {
     left: 50%;      /* Center horizontally */
     transform: translateX(-50%); /* Center horizontally */
     gap: 1rem;
-    padding: 1rem;
+    padding: 2rem;
     transition: bottom 0.5s ease;
     z-index: 3;
     background: #CC484E;
