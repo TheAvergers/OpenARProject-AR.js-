@@ -1,0 +1,287 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100%;
+    overflow: hidden;
+}
+
+#intro-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 10;
+}
+
+#stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite;
+}
+
+@keyframes twinkle {
+    20%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+#globe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    background-image: url('dwell-lab-logo.png');
+    background-size: cover;
+    background-position: 100% center;
+    transform: translate(-50%, -50%);
+    animation: zoom 1s ease-in 1s forwards;
+}
+
+@keyframes zoom {
+    0% { 
+        transform: translate(-50%, -50%) scale(1);
+        background-position: 100% center;
+    }
+    100% { 
+        transform: translate(4500%, -800%) scale(200);
+        background-position: 85% center;
+    }
+}
+
+#content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    z-index: 2;
+    background-color: #17C9FF;
+}
+
+#content.visible {
+    opacity: 1;
+}
+
+#egrBuilding {
+    position: fixed;
+    z-index: 3;
+    background-image: url('building.png');
+    background-size: contain; /* Ensures the image scales to fit */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center;
+    width: 30%;
+    left: 5vh;
+    height: 100vh; /* Full height of the viewport */
+    bottom: -100vh; /* Start off-screen */
+    animation: slide-up1 5s ease forwards;
+    
+}
+
+#rhodyStatue {
+    position: fixed;
+    z-index: 3;
+    background-image: url('rhodyStatue.png');
+    background-size: contain; /* Ensures the image scales to fit */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center;
+    width: 25%;
+    height: 100vh; /* Full height of the viewport */
+    bottom: -100vh; /* Start off-screen */
+    animation: slide-up2 5.5s ease forwards;
+    
+}
+
+#ship {
+    position: fixed;
+    z-index: 3;
+    background-image: url('ship.png');
+    background-size: contain; /* Ensures the image scales to fit */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center;
+    width: 30%;
+    right: 5vh;
+    height: 100vh; /* Full height of the viewport */
+    bottom: -100vh; /* Start off-screen */
+    animation: slide-up3 5s ease forwards;
+    
+}
+
+@keyframes slide-up1 {
+    0% {
+        bottom: -100vh;
+    }
+    100% {
+        bottom: -42vh;
+    }
+}
+@keyframes slide-up2 {
+    0% {
+        bottom: -140vh;
+    }
+    100% {
+        bottom: -35vh;
+    }
+}
+@keyframes slide-up3 {
+    0% {
+        bottom: -140vh;
+    }
+    100% {
+        bottom: -40vh;
+    }
+}
+
+
+
+
+
+#button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: -500px; /* Start off-screen */
+    left: 50%;      /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    gap: 1rem;
+    padding: 2rem;
+    transition: bottom 0.5s ease;
+    z-index: 3;
+    background: #CC484E;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    color: white;
+    width: 30vw;  /* 50% of the viewport width */
+    height: 25vh; /* 50% of the viewport height */
+}
+
+/* Styles for mobile devices */
+@media only screen and (max-width: 744px) {
+    #button-container {
+      width: 85vw;  /* 90% of the viewport width */
+      height: 30vh; /* 30% of the viewport height */
+    }
+
+    #egrBuilding {
+        position: fixed;
+        z-index: 3;
+        background-image: url('building.png');
+        background-size: contain; /* Ensures the image scales to fit */
+        background-repeat: no-repeat; /* Prevents the image from repeating */
+        background-position: center;
+        width: 100%;
+        height: 100vh; /* Full height of the viewport */
+        bottom: -40vh;
+        right: -900px;
+        animation:slide-sideways 30s linear infinite;
+    }
+
+    #rhodyStatue {
+        position: fixed;
+        z-index: 3;
+        background-image: url('rhodyStatue.png');
+        background-size: contain; /* Ensures the image scales to fit */
+        background-repeat: no-repeat; /* Prevents the image from repeating */
+        background-position: center;
+        width: 100%;
+        height: 100vh; /* Full height of the viewport */
+        bottom: -40vh;
+        right: -900px;
+        animation:slide-sideways 30s linear 2s infinite;
+    }
+
+    #ship {
+        position: fixed;
+        z-index: 3;
+        background-image: url('ship.png');
+        background-size: contain; /* Ensures the image scales to fit */
+        background-repeat: no-repeat; /* Prevents the image from repeating */
+        background-position: center;
+        width: 100%;
+        height: 100vh; /* Full height of the viewport */
+        bottom: -40vh;
+        right: -900px;
+        animation:slide-sideways 30s linear 10s infinite;
+    }
+
+
+    @keyframes slide-sideways {
+        0% {
+            transform: translateX(130%);
+        }
+        100% {
+            transform: translateX(-350%);
+        }
+    }
+
+
+}
+
+#button-container.visible {
+    bottom: 50%; /* Move to final position */
+    transform: translate(-50%, 50%); /* Adjust for centering vertically */
+}
+
+#button-container p {
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.button {
+    
+    gap: 8rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    text-decoration: none;
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+.button:active {
+    transform: translateY(0);
+}
+
+.hidden {
+    display: none;
+}
