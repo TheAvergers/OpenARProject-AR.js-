@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    <style>
+    </style>
+</head>
+<body style="margin: 0; overflow: hidden;">
+
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: true;" renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false">
+        <a-assets>
+            <a-asset-item id="rhody-ram" src="rhody_ram/scene.gltf"></a-asset-item>
+        </a-assets>
+        <a-marker preset="hiro">
+            <a-entity id="arObject"
+                      position="0 0.5 0"
+                      scale="100 100 100"
+                      gltf-model="#rhody-ram"></a-entity>
+        </a-marker>
+        <a-entity camera></a-entity>
+    </a-scene>
+    <script>
+    </script>
+</body>
+</html>

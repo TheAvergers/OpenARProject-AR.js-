@@ -1,0 +1,13 @@
+body {
+    margin: 0;
+}
+
+canvas {
+    display: block;
+}
+
+.dg.main {
+    position: absolute !important;
+    top: 60px !important;
+    right: 10px !important;
+}

@@ -4,6 +4,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const content = document.getElementById('content');
     const buttonContainer = document.getElementById('button-container');
 
+
+    // Function to check if the device is mobile
+    function isMobile() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+
+    // Set the appropriate link for the playground button
+    if (isMobile()) {
+        playgroundButton.href = "ar-interface.html";
+    }
+
     // Create stars
     const starCount = 50;
     for (let i = 0; i < starCount; i++) {
