@@ -1,187 +1,298 @@
 {
-	"asset":{
-		"generator":"Khronos glTF Blender I/O v4.1.62",
-		"version":"2.0"
-	},
-	"extensionsUsed":[
-		"KHR_materials_clearcoat",
-		"KHR_materials_sheen"
-	],
-	"scene":0,
-	"scenes":[
-		{
-			"name":"Scene",
-			"nodes":[
-				0
-			]
-		}
-	],
-	"nodes":[
-		{
-			"mesh":0,
-			"name":"geo1_MAT_Animal_Ram_Rhody_0"
-		}
-	],
-	"materials":[
-		{
-			"doubleSided":true,
-			"extensions":{
-				"KHR_materials_clearcoat":{
-					"clearcoatFactor":0.3678756356239319,
-					"clearcoatRoughnessFactor":0.26834195852279663
-				},
-				"KHR_materials_sheen":{
-					"sheenColorFactor":[
-						1.0,
-						0.39442893862724304,
-						0.5035030245780945
-					],
-					"sheenRoughnessFactor":0.5
-				}
-			},
-			"name":"Material.001",
-			"normalTexture":{
-				"index":0
-			},
-			"pbrMetallicRoughness":{
-				"baseColorFactor":[
-					1,
-					0.006579483859241009,
-					0.046497032046318054,
-					1
-				],
-				"metallicFactor":0.3834196627140045,
-				"roughnessFactor":0.28238344192504883
-			}
-		}
-	],
-	"meshes":[
-		{
-			"name":"geo1_MAT_Animal_Ram_Rhody_0.001",
-			"primitives":[
-				{
-					"attributes":{
-						"POSITION":0,
-						"NORMAL":1,
-						"TEXCOORD_0":2,
-						"TEXCOORD_1":3,
-						"TEXCOORD_2":4
-					},
-					"indices":5,
-					"material":0
-				}
-			]
-		}
-	],
-	"textures":[
-		{
-			"sampler":0,
-			"source":0
-		}
-	],
-	"images":[
-		{
-			"mimeType":"image/png",
-			"name":"Untitled",
-			"uri":"textures/Untitled.png"
-		}
-	],
-	"accessors":[
-		{
-			"bufferView":0,
-			"componentType":5126,
-			"count":1768,
-			"max":[
-				0.763839066028595,
-				1.5913630723953247,
-				0.2667749524116516
-			],
-			"min":[
-				-0.7571595907211304,
-				-0.0007345026824623346,
-				-0.2621501088142395
-			],
-			"type":"VEC3"
-		},
-		{
-			"bufferView":1,
-			"componentType":5126,
-			"count":1768,
-			"type":"VEC3"
-		},
-		{
-			"bufferView":2,
-			"componentType":5126,
-			"count":1768,
-			"type":"VEC2"
-		},
-		{
-			"bufferView":3,
-			"componentType":5126,
-			"count":1768,
-			"type":"VEC2"
-		},
-		{
-			"bufferView":4,
-			"componentType":5126,
-			"count":1768,
-			"type":"VEC2"
-		},
-		{
-			"bufferView":5,
-			"componentType":5123,
-			"count":6330,
-			"type":"SCALAR"
-		}
-	],
-	"bufferViews":[
-		{
-			"buffer":0,
-			"byteLength":21216,
-			"byteOffset":0,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":21216,
-			"byteOffset":21216,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":14144,
-			"byteOffset":42432,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":14144,
-			"byteOffset":56576,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":14144,
-			"byteOffset":70720,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":12660,
-			"byteOffset":84864,
-			"target":34963
-		}
-	],
-	"samplers":[
-		{
-			"magFilter":9729,
-			"minFilter":9987
-		}
-	],
-	"buffers":[
-		{
-			"byteLength":97524,
-			"uri":"ram.bin"
-		}
-	]
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 1751,
+      "max": [
+        0.763839066028595,
+        1.5913630723953247,
+        0.2667749524116516
+      ],
+      "min": [
+        -0.7571595907211304,
+        -0.0007345026824623346,
+        -0.2621501088142395
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 21012,
+      "componentType": 5126,
+      "count": 1751,
+      "max": [
+        0.9988225698471069,
+        0.9999469518661499,
+        0.9999291896820068
+      ],
+      "min": [
+        -0.9986521005630493,
+        -0.9999995231628418,
+        -0.9995577931404114
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 1751,
+      "max": [
+        0.999758780002594,
+        0.9992138147354126,
+        0.9997754096984863,
+        1.0
+      ],
+      "min": [
+        -0.9996353387832642,
+        -0.9889508485794067,
+        -0.9997454285621643,
+        -1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 1751,
+      "max": [
+        0.9999610185623169,
+        0.9982878565788269
+      ],
+      "min": [
+        0.0008312216377817094,
+        0.03672793135046959
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 14008,
+      "componentType": 5126,
+      "count": 1751,
+      "max": [
+        0.9999610185623169,
+        0.9982878565788269
+      ],
+      "min": [
+        0.0008312216377817094,
+        0.03672793135046959
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 28016,
+      "componentType": 5126,
+      "count": 1751,
+      "max": [
+        0.9999610185623169,
+        0.9982878565788269
+      ],
+      "min": [
+        0.0008312216377817094,
+        0.03672793135046959
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 6330,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "David Wigforss (https://sketchfab.com/dwigfor)",
+      "license": "CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)",
+      "source": "https://sketchfab.com/3d-models/rhody-ram-ba1a42f94b9b43e1910eff37fccc1e9f",
+      "title": "Rhody Ram"
+    },
+    "generator": "Sketchfab-15.49.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 25320,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 42024,
+      "byteOffset": 25320,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 42024,
+      "byteOffset": 67344,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 28016,
+      "byteOffset": 109368,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 137384,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/MAT_Animal_Ram_Rhody_baseColor.png"
+    },
+    {
+      "uri": "textures/MAT_Animal_Ram_Rhody_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/MAT_Animal_Ram_Rhody_normal.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "MAT_Animal_Ram_Rhody",
+      "normalTexture": {
+        "index": 2
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "geo1_MAT_Animal_Ram_Rhody_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3,
+            "TEXCOORD_1": 4,
+            "TEXCOORD_2": 5
+          },
+          "indices": 6,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.009999999776482582,
+        0.0,
+        0.0,
+        -0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "mesh.fbx"
+    },
+    {
+      "children": [
+        3
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        4
+      ],
+      "name": "geo1"
+    },
+    {
+      "mesh": 0,
+      "name": "geo1_MAT_Animal_Ram_Rhody_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    }
+  ]
 }
