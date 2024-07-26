@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>AR.js GLTF Model Uploader with Adaptive Scaling</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+</head>
+<body style="margin: 0; overflow: hidden;">
+    <div style="position: absolute; top: 10px; left: 10px; z-index: 999; background: white; padding: 10px;">
+        <form id="uploadForm">
+            <input type="file" id="zipFile" accept=".zip" required>
+            <button type="submit">Upload GLTF Model (Zip)</button>
+        </form>
+    </div>
+
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+        <a-marker preset="hiro">
+            <a-entity id="model-container"></a-entity>
+        </a-marker>
+        <a-entity camera></a-entity>
+    </a-scene>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const fileInput = document.getElementById('zipFile');
+            const file = fileInput.files[0];
+            if (file) {
+                handleZipFile(file);
+            }
+        });
+
+        async function handleZipFile(file) {
+            try {
+                const zip = await JSZip.loadAsync(file);
+                const filePromises = [];
+                let gltfFile;
+
+                zip.forEach((relativePath, zipEntry) => {
+                    const filePromise = zipEntry.async('blob').then(blob => {
+                        return { path: relativePath, blob: blob };
+                    });
+                    filePromises.push(filePromise);
+
+                    if (relativePath.endsWith('.gltf') || relativePath.endsWith('.glb')) {
+                        gltfFile = relativePath;
+                    }
+                });
+
+                const files = await Promise.all(filePromises);
+                const fileMap = new Map(files.map(file => [file.path, URL.createObjectURL(file.blob)]));
+
+                if (gltfFile) {
+                    const gltfBlob = await zip.file(gltfFile).async('blob');
+                    const gltfText = await gltfBlob.text();
+                    const gltfJson = JSON.parse(gltfText);
+
+                    // Update buffer and image URIs in the GLTF JSON
+                    if (gltfJson.buffers) {
+                        gltfJson.buffers.forEach(buffer => {
+                            if (buffer.uri && fileMap.has(buffer.uri)) {
+                                buffer.uri = fileMap.get(buffer.uri);
+                            }
+                        });
+                    }
+                    if (gltfJson.images) {
+                        gltfJson.images.forEach(image => {
+                            if (image.uri && fileMap.has(image.uri)) {
+                                image.uri = fileMap.get(image.uri);
+                            }
+                        });
+                    }
+
+                    const updatedGltfBlob = new Blob([JSON.stringify(gltfJson)], {type: 'application/json'});
+                    const modelUrl = URL.createObjectURL(updatedGltfBlob);
+                    
+                    updateARModel(modelUrl);
+                } else {
+                    alert('No GLTF/GLB file found in the uploaded zip');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while processing the zip file');
+            }
+        }
+
+        function updateARModel(modelUrl) {
+            const modelContainer = document.getElementById('model-container');
+            modelContainer.innerHTML = `<a-entity id="model" gltf-model="${modelUrl}"></a-entity>`;
+
+            // Wait for the model to load before calculating its size
+            const modelEntity = document.getElementById('model');
+            modelEntity.addEventListener('model-loaded', function () {
+                calculateAndSetScale(modelEntity);
+            });
+        }
+
+        function calculateAndSetScale(modelEntity) {
+            const obj3D = modelEntity.object3D;
+            const box = new THREE.Box3().setFromObject(obj3D);
+            const size = box.getSize(new THREE.Vector3());
+
+            // Calculate the largest dimension
+            const maxDimension = Math.max(size.x, size.y, size.z);
+
+            // Set the desired size (e.g., 1 unit in world space)
+            const desiredSize = 1;
+
+            // Calculate the scale factor
+            const scale = desiredSize / maxDimension;
+
+            // Set the scale of the model
+            modelEntity.setAttribute('scale', `${scale} ${scale} ${scale}`);
+        }
+    </script>
+</body>
+</html>
