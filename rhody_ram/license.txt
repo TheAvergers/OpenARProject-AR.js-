@@ -1,0 +1,11 @@
+Model Information:
+* title:	Rhody Ram
+* source:	https://sketchfab.com/3d-models/rhody-ram-ba1a42f94b9b43e1910eff37fccc1e9f
+* author:	David Wigforss (https://sketchfab.com/dwigfor)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Rhody Ram" (https://sketchfab.com/3d-models/rhody-ram-ba1a42f94b9b43e1910eff37fccc1e9f) by David Wigforss (https://sketchfab.com/dwigfor) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
